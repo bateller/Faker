@@ -4,18 +4,25 @@ namespace Faker\Provider\nl_NL;
 
 class Person extends \Faker\Provider\Person
 {
-    protected static $formats = array(
-        '{{firstName}} {{lastName}}',
-        '{{firstName}} {{lastName}}',
-        '{{firstName}} {{lastName}}',
-        '{{firstName}} {{lastName}}',
-        '{{firstName}} {{lastName}}',
-        '{{prefix}} {{firstName}} {{lastName}}',
-        '{{firstName}} {{lastName}} {{suffix}}',
-        '{{prefix}} {{firstName}} {{lastName}} {{suffix}}',
+    protected static $maleNameFormats = array(
+        '{{firstNameMale}} {{lastName}}',
+        '{{firstNameMale}} {{lastName}}',
+        '{{firstNameMale}} {{lastName}}',
+        '{{title}} {{firstNameMale}} {{lastName}}',
+        '{{firstNameMale}} {{lastName}} {{suffix}}',
+        '{{title}} {{firstNameMale}} {{lastName}} {{suffix}}',
     );
 
-    private static $prefix = array(
+    protected static $femaleNameFormats = array(
+        '{{firstNameFemale}} {{lastName}}',
+        '{{firstNameFemale}} {{lastName}}',
+        '{{firstNameFemale}} {{lastName}}',
+        '{{title}} {{firstNameFemale}} {{lastName}}',
+        '{{firstNameFemale}} {{lastName}} {{suffix}}',
+        '{{title}} {{firstNameFemale}} {{lastName}} {{suffix}}',
+    );
+
+    protected static $title = array(
         'mr.', 'dr.', 'ir.', 'drs', 'bacc.', 'kand.', 'dr.h.c.', 'prof.', 'ds.', 'ing.', 'bc.'
     );
 
@@ -92,7 +99,7 @@ class Person extends \Faker\Provider\Person
         'van Hostaden', 'Houdijk', 'van \'t Houteveen', 'Huberts', 'Huel', 'Huijben', 'Huijbrechts', 'Huijs',
         'Huijzing', 'Huisman', 'Huls', 'Hulshouts', 'Hulskes', 'Hulst', 'van Hulten', 'Huurdeman', 'van het Heerenveen',
         'Jaceps', 'Jacobi', 'Jacobs', 'Jacquot', 'de Jager', 'Jans', 'Jansdr', 'Janse', 'Jansen', 'Jansen', 'Jansse',
-        'Janssen', 'Janssens', 'Jasperdr.', 'Jdotte', 'Jeggij', 'Jekel', 'Jerusalem', 'Jochems', 'de Jode Vastraedsd',
+        'Janssen', 'Janssens', 'Jasper dr.', 'Jdotte', 'Jeggij', 'Jekel', 'Jerusalem', 'Jochems', 'de Jode Vastraedsd',
         'Jones', 'de Jong', 'Jonkman', 'Joosten', 'Jorlink', 'Jorrisen', 'van Jumiège', 'Jurrijens', 'Köster',
         'van der Kaay', 'de Kale', 'Kallen', 'Kalman', 'Kamp', 'Kamper', 'Karels', 'Kas', 'van Kasteelen', 'Kathagen',
         'Keijser', 'de Keijser', 'Keijzer', 'de Keijzer', 'Keltenie', 'van Kempen', 'Kerkhof', 'Ketel', 'Ketting',
@@ -177,10 +184,10 @@ class Person extends \Faker\Provider\Person
     );
 
     protected static $longLastNames = array(
-        'Albinus genaamd Weiss von Weissenlöw', 'van Bol’es Rijnbende', 'Doris Bin Sijlvanus',
+        'Albinus genaamd Weiss von Weissenlöw', "van Bol'es Rijnbende", 'Doris Bin Sijlvanus',
         'Douglas tot Springwoodpark', 'Dubbeldemuts van der Sluys', 'Duhme auf der Heide sive Heydahrens',
-        'Elsjan of Wipper', 'de la Fontaine und d’Harnoncourt Unverzagt', 'Franse Storm', 'von Frijtag Drabbe Künzel',
-        'Gansneb genaamd Tengnagel tot Bonkenhave', 'Grinwis Plaat Stuitjes', 'von Heinrich d’Omóróvicza',
+        'Elsjan of Wipper', "de la Fontaine und d'Harnoncourt Unverzagt", 'Franse Storm', 'von Frijtag Drabbe Künzel',
+        'Gansneb genaamd Tengnagel tot Bonkenhave', 'Grinwis Plaat Stuitjes', "von Heinrich d'Omóróvicza",
         'van Hugenpoth tot den Berenclauw', 'Jansz Muskus te Pasque', 'Kijk in de Vegte', 'Kleine Pier', 'Koning Knol',
         'Martena van Burmania Vegilin van Claerbergen', 'Paspoort van Grijpskerke en Poppendamme',
         'de Pruyssenaere de la Woestijne', 'Rahajoe genaamd en geschreven ten Kate', 'de la Rive Box',
@@ -188,7 +195,7 @@ class Person extends \Faker\Provider\Person
         'Zuérius Boxhorn van Miggrode', 'Zum Vörde Sive Vörding'
     );
 
-    protected static $commonFemaleFirstNames = array(
+    protected static $firstNameFemale = array(
         'Emma', 'Sophie', 'Julia', 'Anna', 'Lisa', 'Isa', 'Eva', 'Saar', 'Lotte', 'Tess', 'Lynn', 'Fleur', 'Sara',
         'Lieke', 'Noa', 'Fenna', 'Sarah', 'Mila', 'Sanne', 'Roos', 'Elin', 'Zoë', 'Evi', 'Maud', 'Jasmijn', 'Femke',
         'Nina', 'Anne', 'Noor', 'Amy', 'Sofie', 'Olivia', 'Feline', 'Liv', 'Esmee', 'Nora', 'Iris', 'Lina', 'Luna',
@@ -212,7 +219,7 @@ class Person extends \Faker\Provider\Person
         'Sylvie', 'Annemijn', 'Helena', 'Jayda', 'Nadia', 'Amelia', 'Jinthe', 'Jolijn', 'Maja', 'Tirza'
     );
 
-    protected static $commonMaleFirstNames = array(
+    protected static $firstNameMale = array(
         'Daan', 'Bram', 'Sem', 'Lucas', 'Milan', 'Levi', 'Luuk', 'Thijs', 'Jayden', 'Tim', 'Finn', 'Stijn', 'Thomas',
         'Lars', 'Ruben', 'Jesse', 'Noah', 'Julian', 'Max', 'Liam', 'Mees', 'Sam', 'Sven', 'Gijs', 'Luca', 'Teun',
         'Tijn', 'Siem', 'Mats', 'Jens', 'Benjamin', 'Adam', 'Ryan', 'Jan', 'Floris', 'David', 'Olivier', 'Cas', 'Tygo',
@@ -236,39 +243,12 @@ class Person extends \Faker\Provider\Person
         'Mart', 'Sten', 'Ivan', 'Philip', 'Giel', 'Lex', 'Rik', 'Tyler'
     );
 
-    protected static $firstName = null;
-    protected static $lastName = null;
-
-    /**
-     * @example 'John Doe'
-     */
-    public function name()
-    {
-        $format = static::randomElement(static::$formats);
-
-        return $this->generator->parse($format);
-    }
-
-    /**
-     * @example 'John'
-     */
-    public static function firstName()
-    {
-        if (static::randomNumber(0, 1) === 1) {
-            $firstName = static::randomElement(static::$commonFemaleFirstNames);
-        } else {
-            $firstName = static::randomElement(static::$commonMaleFirstNames);
-        }
-
-        return $firstName;
-    }
-
     /**
      * @example 'Doe'
      */
-    public static function lastName()
+    public function lastName()
     {
-        $determinator = static::randomNumber(0, 3);
+        $determinator = static::numberBetween(0, 3);
         if ($determinator === 0) {
             $lastName = static::randomElement(static::$longLastNames);
         } elseif ($determinator === 1) {
@@ -282,12 +262,25 @@ class Person extends \Faker\Provider\Person
         return $lastName;
     }
 
-    /**
-     * @example 'mr.'
-     */
-    public static function prefix()
+    public function title($gender = null)
     {
-        return static::randomElement(static::$prefix);
+        return static::randomElement(static::$title);
+    }
+
+    /**
+     * replaced by specific unisex dutch title
+     */
+    public static function titleMale()
+    {
+        return static::title();
+    }
+
+    /**
+     * replaced by specific unisex dutch title
+     */
+    public static function titleFemale()
+    {
+        return static::title();
     }
 
     /**
